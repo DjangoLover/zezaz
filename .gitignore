@@ -44,5 +44,6 @@ nosetests.xml
 *.log
 *.pot
 *.pyc
+*.db
 settings_local.py
 /static
