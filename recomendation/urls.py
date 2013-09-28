@@ -5,6 +5,6 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('recomendation.views',
-    url(r'^$', 'homepage', name='homepage'),
+    url(r'^$', 'home', name='home'),
 
 )
