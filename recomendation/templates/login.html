@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h2>Log in with your GitHub account</h2>
+        <form class="login-form" action="." method="POST">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            {{form.username.errors}}
+            {{form.username}}
+            <br>
+
+            <label for="password">Password</label>
+            {{form.password.errors}}
+            {{form.password}}
+            <br>
+            <input type="submit" value="Log in" class="btn" />
+        </form>
+    </div>
+
+{% endblock %}
