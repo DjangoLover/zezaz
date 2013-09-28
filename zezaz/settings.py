@@ -69,7 +69,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-
+    'social_auth.context_processors.social_auth_by_name_backends',
+    'social_auth.context_processors.social_auth_backends',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_login_redirect',
 )
 
 DEBUG_TOOLBAR_PANELS = (
@@ -88,6 +91,16 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
 
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.github.GithubBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/login/new'
+
+GITHUB_APP_ID = 'settings_local'
+GITHUB_API_SECRET = 'settings_loca'
+
 ROOT_URLCONF = 'zezaz.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -103,6 +116,7 @@ INSTALLED_APPS = (
 
     'django.contrib.admin',
     'debug_toolbar',
+    'social_auth',
 
     'recomendation',
 )
@@ -137,3 +151,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from settings_local import *
+except Exception as e:
+    print 'usando settings de dev'
