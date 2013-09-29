@@ -57,7 +57,7 @@
             };
 
             $.ajax({
-                url: {% url "recomendation:suggestion" %},
+                url: "{% url "recomendation:suggestion" %}",
                 success:function(data, xsr){
                     renderSuggestion(data);
                 }
