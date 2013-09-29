@@ -38,7 +38,7 @@
                                 <img src="{{ assoc.extra_data.avatar_url }}">
                             {% endif %}
                           {% endfor %}
-                        <img src="{{ backends.associated.github.extra_data.avatar_url }}">
+                        <img src="{{ backends.github.extra_data.avatar_url }}">
                     {% else %}
                         <button type="submit" class="btn btn-success btn-text-black js_login"> Log in with GitHub <img src="{{ STATIC_URL }}recomendation/img/GitHub-Mark-32px.png" width="20px"/></button>
                     {% endif %}
