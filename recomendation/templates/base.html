@@ -32,7 +32,7 @@
                 </ul>
                 <div class="navbar-form navbar-right">
                     {% if user.is_authenticated %}
-                        {{ social_auth  }}
+                        Hello {{ user.username }}, <a href="{% url "logout" %}">logout</a>
                     {% else %}
                         <button type="submit" class="btn btn-success btn-text-black js_login"> Log in with GitHub <img src="{{ STATIC_URL }}recomendation/img/GitHub-Mark-32px.png" width="20px"/></button>
                     {% endif %}

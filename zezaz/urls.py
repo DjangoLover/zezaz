@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'', include('social_auth.urls')),
     url(r'', include('recomendation.urls', namespace='recomendation')),
 
+    url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout')
 )
 
 urlpatterns += staticfiles_urlpatterns()
