@@ -9,9 +9,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'', include('recomendation.urls', namespace='recomendation')),
-    url(r'^follow/', TemplateView.as_view(template_name="follow.html")),
 
     url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout')
 )

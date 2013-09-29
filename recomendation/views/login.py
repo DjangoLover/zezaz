@@ -21,4 +21,4 @@ class OAuthLoginNewView(RedirectView):
                 messages.ERROR,
                 "Error on creating account"
             )
-        return reverse('recomendation:home')
+        return reverse('recomendation:follow')
