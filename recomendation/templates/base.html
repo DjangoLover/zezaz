@@ -33,10 +33,10 @@
                 <div class="navbar-form navbar-right">
                     {% if user.is_authenticated %}
                         <span class="text-success">Welcome {{ user.username }}! </span>
-                        <a href="{% url "logout" %}"> <button class="btn btn-sm btn-default"> logout</a>
+                        <a class="btn btn-sm btn-default" href="{% url "logout" %}">logout</a>
                         {% for assoc in backends.associated %}
                             {% if assoc.provider == 'github' %}
-                                <img class="img-circle img-thumb" src="{{ assoc.extra_data.avatar_url }}">
+                                <img class="img-circle img-thumb-login" src="{{ assoc.extra_data.avatar_url }}">
                             {% endif %}
                           {% endfor %}
                     {% else %}
