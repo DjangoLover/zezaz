@@ -6,29 +6,12 @@
             <h1>Zezaz, <i><span class="lead">improving your github experience!</span></i></h1>
 
             <p class="lead">Find new code buddies and projects to follow and contribute!</p>
-            <p class="lead">Log in with your GitHub account!</p>
+            {% if user.is_authenticated %}
+                <p><a class="btn btn-lg btn-success" href="follow">Show me how <span class="glyphicon glyphicon-chevron-right"></span></i></a></p>
+            {% else %}
+                <button type="submit" class="btn btn-success btn-text-black js_login"> Log in with GitHub <img src="{{ STATIC_URL }}recomendation/img/GitHub-Mark-32px.png" width="20px"/></button>
+            {% endif %}
         </div>
         <hr>
-    </div>
-    <div class="full-container">
-        <div class="container">
-            <div class="row text-center" >
-                <div class="col-lg-4">
-                    <h3>Follow</h3>
-                    <p>Find people that share your passion about coding.</p>
-                    <p class="text-right"><a class="btn btn-sm btn-primary" href="follow">See more &raquo;</a></p>
-                </div>
-                <div class="col-lg-4">
-                    <h3>Stare</h3>
-                    <p>Discover projects to stare, maybe you will find something useful.</p>
-                    <p class="text-right"><a class="btn btn-sm btn-primary" href="#">See more &raquo;</a></p>
-                </div>
-                <div class="col-lg-4">
-                    <h3>Contribute</h3>
-                    <p>Wanna join an open source project? Check this ones.</p>
-                    <p class="text-right"><a class="btn btn-sm btn-primary" href="#">See more &raquo;</a></p>
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock %}
