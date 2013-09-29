@@ -38,7 +38,7 @@
                                 <img class="img-circle img-thumb-login" src="{{ assoc.extra_data.avatar_url }}">
                             {% endif %}
                           {% endfor %}
-                        <a class="btn btn-sm btn-default" href="{% url "logout" %}"><span class="glyphicon glyphicon-log-out"></span></a>
+                        <a class="btn btn-sm btn-default btn-text-black" href="{% url "logout" %}">logout</a>
                     {% else %}
                         <button type="submit" class="btn btn-success btn-text-black js_login"> Log in with GitHub <img src="{{ STATIC_URL }}recomendation/img/GitHub-Mark-32px.png" width="20px"/></button>
                     {% endif %}
