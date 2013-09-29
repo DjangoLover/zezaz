@@ -11,6 +11,6 @@ git pull
 
 #my_python manage.py syncdb --noinput
 my_python manage.py collectstatic --noinput
-#my_pip install -r requirements.txt
+my_pip install -r requirements.txt
 
 pkill python
