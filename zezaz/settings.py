@@ -23,7 +23,16 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ['zezaz.amazingworks.com.br']
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'for_dev',
+    }
+}
+
+
+
+ALLOWED_HOSTS = ('zezaz.amazingworks.com.br', )
 
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
@@ -85,7 +94,9 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.sql.SQLDebugPanel',
     'debug_toolbar.panels.signals.SignalDebugPanel',
     'debug_toolbar.panels.logger.LoggingPanel',
-    )
+    'cache_panel.panel.CacheDebugPanel',
+    'zezaz.debug.GitDebugPanel',
+)
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
@@ -99,7 +110,7 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/login/new'
 
 GITHUB_APP_ID = 'settings_local'
-GITHUB_API_SECRET = 'settings_loca'
+GITHUB_API_SECRET = 'settings_local'
 
 ROOT_URLCONF = 'zezaz.urls'
 
@@ -116,6 +127,7 @@ INSTALLED_APPS = (
 
     'django.contrib.admin',
     'debug_toolbar',
+    'cache_panel',
     'social_auth',
 
     'recomendation',
