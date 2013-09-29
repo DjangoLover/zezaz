@@ -9,7 +9,13 @@ $(document).ready(function(){
         success:function(data, xsr){
             renderSuggestion(data);
         }
-    })
+    });
+
+    $(".js_as_link").click(function(e){
+        var url = $(this).data('link');
+        window.location = url;
+        console.log(url)
+    });
 });
 
 removeSuggestion = function(user){
