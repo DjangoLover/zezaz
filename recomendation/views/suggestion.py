@@ -11,11 +11,11 @@ class Suggetion(View):
 
         def getUrls(url_get):
             next_url = {
-                            'next':None,
-                            'last':None,
-                            'first':None,
-                            'prev':None
-                        }
+                'next':None,
+                'last':None,
+                'first':None,
+                'prev':None
+            }
 
             response = requests.get(url_get)
             conteudo = response.content
@@ -136,23 +136,28 @@ class Suggetion(View):
             users.append(tmp)
 
 
-        users2 = [{
+        users2 = [
+            {
                 "avatar_url": 'https://2.gravatar.com/avatar/8f8d53501d40286f6a2f228326926909',
                 "login": 'cesarFrias',
                 "bio": 'minimin'
-            },{
+            },
+            {
                 "avatar_url": 'https://2.gravatar.com/avatar/8f8d53501d40286f6a2f228326926909',
                 "login": 'cesarFrias',
                 "bio": 'minimin'
-            },{
+            },
+            {
                 "avatar_url": 'https://2.gravatar.com/avatar/8f8d53501d40286f6a2f228326926909',
                 "login": 'cesarFrias',
                 "bio": 'minimin'
-            },{
+            },
+            {
                 "avatar_url": 'https://2.gravatar.com/avatar/8f8d53501d40286f6a2f228326926909',
                 "login": 'cesarFrias',
                 "bio": 'minimin'
-            }]
+            }
+        ]
 
         return HttpResponse(json.dumps(users), mimetype='application/json')
 
