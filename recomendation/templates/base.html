@@ -77,7 +77,7 @@
 
         <script>
             $(document).ready(function(){
-                var url = "{% url 'socialauth_begin' 'github' %}?{{ redirect_querystring }}";
+                var url = "{% url "social:begin" "github" %}?{{ redirect_querystring }}";
                 $(".js_login").click(function(e){
                     window.location = url;
                 });

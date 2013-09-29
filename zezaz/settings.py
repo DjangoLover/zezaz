@@ -103,14 +103,14 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.contrib.github.GithubBackend',
+    'social.backends.github.GithubOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/login/new'
 
-GITHUB_APP_ID = 'settings_local'
-GITHUB_API_SECRET = 'settings_local'
+SOCIAL_AUTH_GITHUB_KEY = 'settings_local'
+SOCIAL_AUTH_GITHUB_SECRET = 'settings_local'
 
 ROOT_URLCONF = 'zezaz.urls'
 
@@ -128,7 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'debug_toolbar',
     'cache_panel',
-    'social_auth',
+    'social.apps.django_app.default',
 
     'recomendation',
 )
