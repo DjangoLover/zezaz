@@ -107,7 +107,7 @@ AUTHENTICATION_BACKENDS = (
     'zezaz.oauth.ZezazGithubOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/follow'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/login/new'
 
 SOCIAL_AUTH_GITHUB_KEY = 'settings_local'
