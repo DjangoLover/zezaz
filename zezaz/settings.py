@@ -32,7 +32,7 @@ CACHES = {
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.SessionStorage'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 ALLOWED_HOSTS = ('zezaz.amazingworks.com.br', )
 
