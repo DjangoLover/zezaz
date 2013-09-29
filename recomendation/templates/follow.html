@@ -13,15 +13,15 @@
     </div>
 {% endblock %}
 
-    {% block scripts %}
+{% block scripts %}
 
-        {{ block.super }}
+    {{ block.super }}
 
     <script type="text/template" id="template-suggestion">
         <% _.each(users, function(user, index, collection){  %>
 
-            <% if(index == 0){ %>
-                <div class="row text-center">
+        <% if(index == 0){ %>
+        <div class="row text-center">
             <% } %>
 
             <div class="col-lg-2">
@@ -30,46 +30,48 @@
                      data-src="holder.js/100x100" alt="100x100">
                 <p class="lead"><%= user.login %></p>
                 <div class="btn-group btn-sm btn-user-action">
-                    <a class="btn btn-sm btn-inverse active" href="#fakelink"><span  class="glyphicon glyphicon-road"></span ></a>
-                    <a class="btn btn-sm btn-inverse" href="http://github.com/<%= user.login %>" target="_blank"><span  class="glyphicon glyphicon-new-window"></span ></a>
-                    <a class="btn btn-sm btn-danger" onclick="remove_user(this);"><span  class="glyphicon glyphicon-remove"></span ></a>
+                    <a class="btn btn-sm btn-inverse" href="http://github.com/<%= user.login %>" target="_blank" title="Remove suggestion">
+                        <span  class="glyphicon glyphicon-new-window"></span >
+                    </a>
+                    <a class="btn btn-sm btn-danger" onclick="removeSuggestion(this);">
+                        <span  class="glyphicon glyphicon-remove"></span >
+                    </a>
                 </div>
                 <div class="tooltip fade bottom"></div>
             </div>
 
             <% if(index % 6 == 0 && (index + 1 < collection.lenght )){ %>
-                </div>
-                <div class="row text-center">
+        </div>
+        <div class="row text-center">
             <% } %>
-        <% }); %>
+            <% }); %>
         </div>
     </script>
 
     <script>
-    $(document).ready(function(){
+        $(document).ready(function(){
 
-        templates = {
-            'suggestion': _.template($("#template-suggestion").html())
-        };
+            templates = {
+                'suggestion': _.template($("#template-suggestion").html())
+            };
 
-        $.ajax({
-            url: "{% url "recomendation:suggestion" %}",
-            success:function(data, xsr){
-                render_suggestion(data);
-            }
-        })
-    });
+            $.ajax({
+                url: "{% url "recomendation:suggestion" %}",
+                success:function(data, xsr){
+                    renderSuggestion(data);
+                }
+            })
+        });
 
-    remove_user = function(user){
-        console.log(user);
-        var to_remove = $(user).parent().parent();
-        to_remove.fadeOut();
-        to_remove.remove();
-    }
+        removeSuggestion = function(user){
+            var user = $(user).parent().parent();
+            user.fadeOut();
+            user.remove();
+        }
 
-    render_suggestion = function(users){
-        $('.js_anchor_suggestion').html(templates.suggestion({users:users}));
-    }
+        renderSuggestion = function(users){
+            $('.js_anchor_suggestion').html(templates.suggestion({users:users}));
+        }
 
     </script>
 {% endblock %}
