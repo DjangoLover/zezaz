@@ -104,7 +104,7 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.github.GithubOAuth2',
+    'zezaz.oauth.ZezazGithubOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
