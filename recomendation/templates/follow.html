@@ -38,8 +38,8 @@
                      data-src="holder.js/100x100" alt="100x100">
                 <div class="btn-group btn-sm btn-user-action">
                     <a class="btn btn-sm btn-inverse active" href="#fakelink"><span  class="glyphicon glyphicon-road"></span ></a>
-                    <a class="btn btn-sm btn-inverse" href="#fakelink"><span  class="glyphicon glyphicon-new-window"></span ></a>
-                    <a class="btn btn-sm btn-danger" href="#fakelink"><span  class="glyphicon glyphicon-remove"></span ></a>
+                    <a class="btn btn-sm btn-inverse" href="http://github.com/<%= user.login %>" target="_blank"><span  class="glyphicon glyphicon-new-window"></span ></a>
+                    <a class="btn btn-sm btn-danger" onclick="remove_user(this);"><span  class="glyphicon glyphicon-remove"></span ></a>
                 </div>
                 <div class="tooltip fade bottom">
                     <div class="tooltip-arrow"></div>
@@ -71,6 +71,13 @@
             }
         })
     });
+
+    remove_user = function(user){
+        console.log(user);
+        var to_remove = $(user).parent().parent();
+        to_remove.fadeOut();
+        to_remove.remove();
+    }
 
     render_suggestion = function(users){
         $('.js_anchor_suggestion').html(templates.suggestion({users:users}));
