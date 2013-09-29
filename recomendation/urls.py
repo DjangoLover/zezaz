@@ -9,5 +9,5 @@ urlpatterns = patterns('recomendation.views',
     url(r'^about$', TemplateView.as_view(template_name='about.html'), name="about"),
     url(r'^team$', TemplateView.as_view(template_name='team.html'), name="team"),
 
-    url(r'login/new', OAuthLoginNewView.as_view(), name='login_ok'),
+    url(r'^login/new$', OAuthLoginNewView.as_view(), name='login_new'),
 )
