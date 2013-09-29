@@ -1,6 +1,8 @@
 #!/bin/sh
 
-echo "Content-type: text/html"
+echo "Content-type: text/plain"
+echo ""
+
 alias my_python="/home/zezaz_dash/.pythonbrew/pythons/Python-2.7.5/bin/python"
 alias my_pip="/home/zezaz_dash/.pythonbrew/pythons/Python-2.7.5/bin/pip"
 
