@@ -30,7 +30,7 @@ CACHES = {
     }
 }
 
-
+SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
 ALLOWED_HOSTS = ('zezaz.amazingworks.com.br', )
 
