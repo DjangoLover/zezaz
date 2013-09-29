@@ -7,9 +7,8 @@
         <hr>
     </div>
     <div class="full-container">
-        <div class="container js_anchor_suggestion">
-{#            <img id="loading" class="text-center" src="{{ STATIC_URL }}recomendation/img/loading_people.gif">#}
-            <div class="vjs-loading-spinner"></div>
+        <div class="container sugestion">
+            <img id="loading" class="text-center" src="{{ STATIC_URL }}recomendation/img/loading_people.gif">
         </div>
     </div>
 {% endblock %}
@@ -50,29 +49,7 @@
     </script>
 
     <script>
-        $(document).ready(function(){
 
-            templates = {
-                'suggestion': _.template($("#template-suggestion").html())
-            };
-
-            $.ajax({
-                url: "{% url "recomendation:suggestion" %}",
-                success:function(data, xsr){
-                    renderSuggestion(data);
-                }
-            })
-        });
-
-        removeSuggestion = function(user){
-            var user = $(user).parent().parent();
-            user.fadeOut();
-            user.remove();
-        }
-
-        renderSuggestion = function(users){
-            $('.js_anchor_suggestion').html(templates.suggestion({users:users}));
-        }
 
     </script>
 {% endblock %}
