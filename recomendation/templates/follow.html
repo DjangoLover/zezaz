@@ -28,17 +28,13 @@
                 <img class="img-circle img-thumb"
                      src="<%= user.avatar_url %>"
                      data-src="holder.js/100x100" alt="100x100">
+                <p class="lead"><%= user.login %></p>
                 <div class="btn-group btn-sm btn-user-action">
                     <a class="btn btn-sm btn-inverse active" href="#fakelink"><span  class="glyphicon glyphicon-road"></span ></a>
                     <a class="btn btn-sm btn-inverse" href="http://github.com/<%= user.login %>" target="_blank"><span  class="glyphicon glyphicon-new-window"></span ></a>
                     <a class="btn btn-sm btn-danger" onclick="remove_user(this);"><span  class="glyphicon glyphicon-remove"></span ></a>
                 </div>
-                <div class="tooltip fade bottom">
-                    <div class="tooltip-arrow"></div>
-                    <div class="tooltip-inner">
-                        <h6><% user.login %></h6>
-                        <p><% user.bio %></p></div>
-                </div>
+                <div class="tooltip fade bottom"></div>
             </div>
 
             <% if(index % 6 == 0 && (index + 1 < collection.lenght )){ %>
