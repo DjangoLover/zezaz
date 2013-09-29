@@ -20,28 +20,29 @@
     <![endif]-->
 </head>
 <body>
-<div class="navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Zezaz</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{% url "recomendation:about" %}">About</a></li>
-                <li><a href="{% url "recomendation:team" %}">Team</a></li>
-            </ul>
-            <div class="navbar-form navbar-right">
-                {% if user.is_authenticated %}
-                    <span class="text-success">Welcome {{ user.username }}! </span>
-                    {% for assoc in backends.associated %}
-                        {% if assoc.provider == 'github' %}
-                            <img class="img-circle img-thumb-login" src="{{ assoc.extra_data.avatar_url }}">
-                        {% endif %}
-                    {% endfor %}
-                    <button class="btn btn-sm btn-default btn-text-black" href="{% url "logout" %}">logout</button>
-                {% else %}
-                    <button type="submit" class="btn btn-success btn-text-black js_login"> Log in with GitHub <img src="{{ STATIC_URL }}recomendation/img/GitHub-Mark-32px.png" width="20px"/></button>
-                {% endif %}
+    <div class="navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Zezaz</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url "recomendation:about" %}">About</a></li>
+                    <li><a href="{% url "recomendation:team" %}">Team</a></li>
+                </ul>
+                <div class="navbar-form navbar-right">
+                    {% if user.is_authenticated %}
+                        <span class="text-success">Welcome {{ user.username }}! </span>
+                        {% for assoc in backends.associated %}
+                            {% if assoc.provider == 'github' %}
+                                <img class="img-circle img-thumb-login" src="{{ assoc.extra_data.avatar_url }}">
+                            {% endif %}
+                          {% endfor %}
+                        <button class="btn btn-sm btn-default btn-text-black js_as_link" data-link="{% url "logout" %}">logout</button>
+                    {% else %}
+                        <button type="submit" class="btn btn-success btn-text-black js_as_link" data-link="{% url "social:begin" "github" %}?{{ redirect_querystring }}"> Log in with GitHub <img src="{{ STATIC_URL }}recomendation/img/GitHub-Mark-32px.png" width="20px"/></button>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
@@ -84,8 +85,8 @@
 
         <script>
             $(document).ready(function(){
-                var url = "{% url "social:begin" "github" %}?{{ redirect_querystring }}";
-                $(".js_login").click(function(e){
+                $(".js_as_link").click(function(e){
+                    var url = $(this).data('link');
                     window.location = url;
                 });
             });
